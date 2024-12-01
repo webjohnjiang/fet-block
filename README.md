@@ -1,6 +1,6 @@
 # fet-block
 
-Replace the xmlHttpRequest url to another domain or another request tunnel.
+Hook the request in a web page, and replace the url to another domain. When the request is xmlHttpRequest, it can transform the request to another domain or another request tunnel.
 
 
 ## usage
