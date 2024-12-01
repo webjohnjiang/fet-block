@@ -1,5 +1,6 @@
-# xhr-polyfill
-Replace the xmlHttpRequest url to another domain or tunnel.
+# fet-block
+
+Replace the xmlHttpRequest url to another domain or another request tunnel.
 
 
 ## usage
