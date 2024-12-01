@@ -1,6 +1,6 @@
 {
   "name": "fet-block",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "fetBlock is a web h5 request hook library",
   "types": "module",
   "main": "dist/fetBlock.cjs",
@@ -19,7 +19,7 @@
     "_devServer": "serve ./examples -p 52000",
     "prepublishOnly": "npm run build",
     "publish:beta": "standard-version --prerelease beta --release-as patch && git push --no-verify --follow-tags origin HEAD:test && npm publish --tag beta",
-    "publish:release": "standard-version --release-as minor && git push --no-verify --follow-tags origin HEAD:prod && npm publish"
+    "publish:release": "standard-version --release-as patch && git push --no-verify --follow-tags origin HEAD:main && npm publish"
   },
   "keywords": [],
   "author": "sheldon cui",
