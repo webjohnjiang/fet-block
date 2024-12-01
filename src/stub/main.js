@@ -1,9 +1,10 @@
 import { nativeXhrRequest } from "../tools/xhr";
 import { execScript } from '../tools/dom';
 import { printDebugLog } from '../tools/log';
+import { getUrlParams } from "../tools/url";
 
 const logicUrl = {
-  prod: `https://www.unpkg.com/fet@${pkgVersion}/umd/fetBlockLogic.min.js`,
+  prod: getUrlParams(window.location.href, 'fetblock_debug') ? `https://www.unpkg.com/fet-block@${pkgVersion}/dist/fetBlockLogic@${pkgVersion}.umd.js` : `https://www.unpkg.com/fet-block@${pkgVersion}/dist/fetBlockLogic@${pkgVersion}.umd.min.js`,
   dev: `/dist/fetBlockLogic@${pkgVersion}.umd.js`
 }[process.env.NODE_ENV]
 

@@ -15,7 +15,7 @@ link: <https://www.cuiyongjian.com/docs-fetblock/>
 install the npm package in your project
 
 ```bash
-npm install fetBlock
+npm install fet-block
 ```
 
 import it in your project entry file, as early as possible
