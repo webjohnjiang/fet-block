@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.1.2](https://github.com/webjohnjiang/fet-block/compare/v1.1.1...v1.1.2) (2024-12-01)
+
+
+### Features
+
+* use uncompress cdn version when at debug mode ([4c9eeb5](https://github.com/webjohnjiang/fet-block/commit/4c9eeb5c8b7dc09275357139f911ca98f9cb2d8b))
+
 ### [1.1.1](https://github.com/webjohnjiang/fet-block/compare/v1.1.0...v1.1.1) (2024-12-01)
 
 ## 1.1.0 (2024-12-01)
