@@ -19,7 +19,6 @@ export async function nativeXhrRequest (options) {
     xhr.timeout = options.timeout || 5000
     xhr.responseType = options.responseType || 'text'
     xhr.onload = function () {
-      // console.log('xhr onload', xhr.status, xhr.statusText, xhr.responseURL || '?', xhr.openUrl)
       if (xhr.responseType === 'text') {
         resolve({
           status: xhr.status,

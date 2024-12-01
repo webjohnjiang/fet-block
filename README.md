@@ -1,5 +1,5 @@
 # xhr-polyfill
-polyfill the xmlhttprequest api for any platform.
+Replace the xmlHttpRequest url to another domain or tunnel.
 
 
 ## usage
@@ -100,4 +100,4 @@ Access-Control-Max-Age: 1
 
 Then, you should config your chrome `swichOmega` plugin to use the `whistle` proxy.
 
-Finally, You can visit `https://www.mydeom.com` to see the demo page, and change the code in src folder, and it will audo build the dist.
+Finally, You can visit `https://www.mydemo.com` to see the demo page, and change the code in src folder, and it will audo build the dist.

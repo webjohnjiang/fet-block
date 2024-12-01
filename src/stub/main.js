@@ -1,15 +1,16 @@
 import { nativeXhrRequest } from "../tools/xhr";
 import { execScript } from '../tools/dom';
+import { printDebugLog } from '../tools/log';
 
 const logicUrl = {
-  prod: `https://www.unpkg.com/fet@${pkgVersion}/umd/react.production.min.js`,
+  prod: `https://www.unpkg.com/fet@${pkgVersion}/umd/fetBlockLogic.min.js`,
   dev: `/dist/fetBlockLogic@${pkgVersion}.umd.js`
 }[process.env.NODE_ENV]
 
 const LOCAL_STORAGE_FET_BLOCK_LOGIC_KEY = 'fet_block_logic_js_content'
 
-export async function init(options) {
-  console.log('stub exec', logicUrl)
+export async function init(options = {}) {
+  printDebugLog('stub exec', logicUrl)
   if (options.configUrl) {
     window.fetBlockConfigUrl = configUrl
   }

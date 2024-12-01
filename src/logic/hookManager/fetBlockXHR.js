@@ -1,5 +1,6 @@
 import { getRuleByRequestUrl } from '../rulesManager/index.js'
 import { sendRequestByTunnel } from '../tunnels/index.js'
+import { printDebugLog } from '../../tools/log.js'
 
 // 实现fetBlock封装后的 XMLHttpRequset class
 
@@ -85,7 +86,7 @@ export class FetBlockXMLHttpRequest extends window.XMLHttpRequest {
 
     send(bodyData) {
         const bestRule = getRuleByRequestUrl(this.#openArgs)
-        console.log('最佳规则为：', bestRule)
+        printDebugLog('最佳规则为：', bestRule)
         if (!bestRule) return super.send()
         this.#tunnelType = bestRule.type
         // 原始xhr通道
@@ -133,7 +134,7 @@ export class FetBlockXMLHttpRequest extends window.XMLHttpRequest {
                 loaded: res?.body?.length,
                 total: res?.body?.length
             }))
-            console.log('xhr内部onload触发完成')
+            printDebugLog('xhr内部onload触发完成')
         }).catch(err => {
             if (this.#isAbort) return
             this.#resetXhrStatus({

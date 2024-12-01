@@ -1,9 +1,10 @@
-import { getRuleByRequestUrl, getXHRRuleByRequestUrl } from "../rulesManager/index.js"
+import { getDomainReplaceRuleByRequestUrl } from "../rulesManager/index.js"
 import { FetBlockXMLHttpRequest } from './fetBlockXHR.js'
+import { printDebugLog } from "../../tools/log.js"
 
 // 替换url中的域名部分
 function fetBlockReplaceUrl(url) {
-    const bestXHRRule = getXHRRuleByRequestUrl({
+    const bestXHRRule = getDomainReplaceRuleByRequestUrl({
         url
     })
     if (bestXHRRule) {
@@ -30,9 +31,9 @@ function hookFetch() {
 }
 
 export function init() {
-    console.log('init hookmanager')
+    printDebugLog('init hookmanager')
     hookXMLHttpRequest()
-    console.log('hook xhr')
+    printDebugLog('hook xhr')
     hookFetch()
-    console.log('hook fetch')
+    printDebugLog('hook fetch')
 }

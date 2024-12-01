@@ -2,6 +2,7 @@ import { nativeXhrRequest, standardizationRequestOptions } from "../../tools/xhr
 import { getUAInfo, getLocalStorageObject } from "../../tools/dom";
 import { getUrlDomain } from "../../tools/url";
 import { getAllTunnelTypes, isCanIUseThisTunnel } from "../tunnels/index";
+import { printDebugLog } from "../../tools/log";
 
 let configJsonUrl = process.env.NODE_ENV === 'production'
     ? `https://www.unpkg.com/fet@${pkgVersion}/dist/config.json`
@@ -28,7 +29,7 @@ function getConfigByUser(originConfig, userProperty) {
 }
 
 export async function init() {
-    console.log('init rulesManager')
+    printDebugLog('init rulesManager')
     // 1. 拿出本地config配置
     const config = getLocalStorageObject(LOCAL_STORAGE_FET_BLOCK_CONFIG_KEY)
     if (config) {
@@ -92,6 +93,6 @@ export function getRuleByRequestUrl(reqOptions, isForceXHR) {
     }
 }
 
-export function getXHRRuleByRequestUrl(reqOptions) {
+export function getDomainReplaceRuleByRequestUrl(reqOptions) {
     return getRuleByRequestUrl(reqOptions, true)
 }
