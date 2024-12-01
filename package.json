@@ -25,6 +25,10 @@
   "author": "sheldon cui",
   "license": "MIT",
   "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/webjohnjiang/fet-block"
+  },
   "devDependencies": {
     "@babel/preset-env": "^7.26.0",
     "@rollup/plugin-babel": "^6.0.4",
