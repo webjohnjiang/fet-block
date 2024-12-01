@@ -2,6 +2,8 @@
 
 Hook the request in a web page, and replace the url to another domain. When the request is xmlHttpRequest, it can transform the request to another domain or another request tunnel.
 
+All above are done by just one config file.
+
 
 ## usage
 
