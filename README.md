@@ -4,6 +4,9 @@ Hook the request in a web page, and replace the url to another domain. When the 
 
 All above are done by just one config file.
 
+## docs
+
+link: <https://www.cuiyongjian.com/docs-fetblock/>
 
 ## usage
 
