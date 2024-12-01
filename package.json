@@ -1,5 +1,5 @@
 {
-  "name": "fetBlock",
+  "name": "fet-block",
   "version": "1.0.0",
   "description": "fetBlock is a web h5 request hook library",
   "types": "module",
@@ -17,7 +17,7 @@
     "_buildDev": "cross-env NODE_ENV=dev rollup -c -w",
     "_buildProd": "cross-env NODE_ENV=prod rollup -c",
     "_devServer": "serve ./examples -p 52000",
-    "prepublishOnly": "npm run doc && npm run build",
+    "prepublishOnly": "npm run build",
     "publish:beta": "standard-version --prerelease beta --release-as patch && git push --no-verify --follow-tags origin HEAD:test && npm publish --tag beta",
     "publish:release": "standard-version --release-as minor && git push --no-verify --follow-tags origin HEAD:prod && npm publish"
   },
