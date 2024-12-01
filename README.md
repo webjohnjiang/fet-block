@@ -1,5 +1,7 @@
 # fet-block
 
+[![npm version](https://badge.fury.io/js/fet-block.svg)](https://badge.fury.io/js/fet-block)
+
 Hook the request in a web page, and replace the url to another domain. When the request is xmlHttpRequest, it can transform the request to another domain or another request tunnel.
 
 All above are done by just one config file.
@@ -19,7 +21,7 @@ npm install fetBlock
 import it in your project entry file, as early as possible
 
 ```js
-import { init } from 'fetBlock'
+import { init } from 'fet-block'
 // start fetBlock
 init()
 ```
@@ -27,7 +29,7 @@ init()
 You should use you own config url in prodution environment. So you should pass a config url to fetBlock:
 
 ```js
-import { init } from 'fetBlock'
+import { init } from 'fet-block'
 // start fetBlock
 init({
     configUrl: 'https://yourdomain.com/config.json'
@@ -35,6 +37,13 @@ init({
 ```
 
 And now your project is ready to go!
+
+
+Or you can use it with cdn link:
+
+```html
+<script src="https://www.unpkg.com/browse/fet-block@1.0.0/dist/fetBlockLogic@1.0.0.umd.min.js"></script>
+```
 
 ## config
 
