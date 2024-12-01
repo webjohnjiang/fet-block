@@ -1,0 +1,10 @@
+{
+  "zh": {
+    "img.mydemo.com": "sendRequestByJsBridge",
+    "api.mydemo.com": "sendRequestByJsBridge"
+  },
+  "en": {
+    "img.mydemo.com": "bak.img.mydemo.com",
+    "api.mydemo.com": "bak.api.mydemo.com"
+  }
+}

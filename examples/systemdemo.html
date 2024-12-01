@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>demo</title>
+</head>
+<body>
+	<h1>Rollup code-splitting demo</h1>
+
+	<p><a href='https://github.com/rollup/rollup-starter-code-splitting'>See the source code on GitHub</a></p>
+
+	<div id='a'>
+		<div data-used-by='a'></div>
+		<div data-used-by='both'></div>
+	</div>
+
+	<div id='b'>
+		<div data-used-by='b'></div>
+		<div data-used-by='both'></div>
+	</div>
+
+	<!-- <script type="module">
+		import("./dist/stub.1.0.0.es.js").then(function(fetBlock) {
+      console.log('fetBlock', fetBlock)
+      debugger
+      fetBlock.initBlock();
+    })
+		window.supportsDynamicImport = true;
+	</script> -->
+
+	<script type="systemjs-importmap">
+		{
+		  "imports": {
+			"fetBlock": "/dist/stub.1.0.0.system.js"
+		  }
+		}
+	</script> 
+	<script>
+    // https://github.com/rollup/rollup-starter-code-splitting/blob/master/public/index.html
+    console.log('here??')
+    const systemJsLoaderTag = document.createElement('script');
+    systemJsLoaderTag.src = '//cdn.jsdelivr.net/npm/systemjs@6.15.1/dist/system.js';
+    systemJsLoaderTag.addEventListener('load', function () {
+		const namedPlugin = document.createElement('script');
+		// https://cdnjs.com/libraries/systemjs
+		namedPlugin.src = '//cdnjs.cloudflare.com/ajax/libs/systemjs/6.15.1/extras/named-register.min.js'
+		namedPlugin.addEventListener('load', function () {
+			console.log('namedPlugin加载完毕');
+			System.import('fetBlock').then(mymodule => {
+				console.log('加载后的模块', mymodule);
+				mymodule.initBlock();
+			})
+		});
+		document.head.appendChild(namedPlugin);
+		console.log('script加载完毕');
+    });
+    document.head.appendChild(systemJsLoaderTag);
+	</script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+<head lang='en'>
+	<meta charset='utf-8'>
+	<meta name='viewport' content='width=device-width'>
+	<link rel='icon' type='image/png' href='/favicon.png'>
+
+	<title>Rollup code-splitting demo</title>
+
+	<link rel='stylesheet' href='styles.css'>
+</head>
+<body>
+	<h1>Rollup code-splitting demo</h1>
+
+	<p><a href='https://github.com/rollup/rollup-starter-code-splitting'>See the source code on GitHub</a></p>
+
+	<div id='a'>
+		<div data-used-by='a'></div>
+		<div data-used-by='both'></div>
+	</div>
+
+	<div id='b'>
+		<div data-used-by='b'></div>
+		<div data-used-by='both'></div>
+	</div>
+
+	<script type="module">
+		import("./dist/stub.1.0.0.es.js").then(function(fetBlock) {
+      console.log('fetBlock', fetBlock)
+      debugger
+      fetBlock.initBlock();
+    })
+		window.supportsDynamicImport = true;
+	</script>
+	<script nomodule>
+    // https://github.com/rollup/rollup-starter-code-splitting/blob/master/public/index.html
+		// 当浏览器不支持esmodule时，加载systemjs系统（注意rollup打包的命名system.register的模块，需要加载system named import命名导入插件）
+    const systemJsLoaderTag = document.createElement('script');
+    systemJsLoaderTag.src = 'https://unpkg.com/systemjs@2.0.0/dist/s.min.js';
+    systemJsLoaderTag.addEventListener('load', function () {
+      System.import('./dist/stub.1.0.0.system.js', function(res) {
+        console.log('xxxx')
+      }).then(function(res) {
+        console.log('模块加载完毕', res)
+      })
+    });
+    document.head.appendChild(systemJsLoaderTag);
+	</script>
+</body>
+</html>

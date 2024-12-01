@@ -1,0 +1,42 @@
+{
+  "name": "fetBlock",
+  "version": "1.0.0",
+  "description": "fetBlock is a web h5 request hook library",
+  "types": "module",
+  "main": "dist/fetBlock.cjs",
+  "exports": {
+    ".": {
+      "import": "./dist/fetBlock.js",
+      "require": "./dist/fetBlock.cjs",
+      "default": "./dist/fetBlock.js"
+    }
+  },
+  "scripts": {
+    "dev": "rm -rf ./examples/dist && npm-run-all --parallel _buildDev _devServer",
+    "build": "rm -rf ./dist && npm run _buildProd",
+    "_buildDev": "cross-env NODE_ENV=dev rollup -c -w",
+    "_buildProd": "cross-env NODE_ENV=prod rollup -c",
+    "_devServer": "serve ./examples -p 52000",
+    "prepublishOnly": "npm run doc && npm run build",
+    "publish:beta": "standard-version --prerelease beta --release-as patch && git push --no-verify --follow-tags origin HEAD:test && npm publish --tag beta",
+    "publish:release": "standard-version --release-as minor && git push --no-verify --follow-tags origin HEAD:prod && npm publish"
+  },
+  "keywords": [],
+  "author": "sheldon cui",
+  "license": "MIT",
+  "type": "module",
+  "devDependencies": {
+    "@babel/preset-env": "^7.26.0",
+    "@rollup/plugin-babel": "^6.0.4",
+    "@rollup/plugin-html": "^1.0.4",
+    "@rollup/plugin-json": "^6.1.0",
+    "@rollup/plugin-replace": "^6.0.1",
+    "@rollup/plugin-terser": "^0.4.4",
+    "cross-env": "^7.0.3",
+    "http-server": "^14.1.1",
+    "npm-run-all": "^4.1.5",
+    "rollup": "^4.25.0",
+    "rollup-plugin-copy": "^3.5.0",
+    "serve": "^14.2.4"
+  }
+}

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>测试fetblock</title>
+</head>
+<body>
+    测试fetblock
+    <script src="./dist/fetBlock@1.0.0.umd.js"></script>
+    <script>
+        fetBlock.init();
+    </script>
+    <script>
+        console.log('测试发送xhr请求')
+        const requestByXhr = function () {
+            return new Promise((resolve, reject) => {
+                const xhr = new XMLHttpRequest()
+                xhr.open('get', 'https://api.mydemo.com/assets/test.json')
+                xhr.onload = function() {
+                    console.log('xhr外层收到onload')
+                    resolve(xhr.responseText)
+                }
+                xhr.send()
+            })
+        }
+        requestByXhr().then(res => {
+            console.log('xhr 响应完成', res, typeof res)
+        })
+        console.log('测试发送fetch请求')
+        window.fetch('https://img.mydemo.com/assets/test.json').then(async res => {
+            const finalRes = await res.text()
+            console.log('fetch 响应完成', finalRes, typeof finalRes)
+        })
+    </script>
+</body>
+</html>
