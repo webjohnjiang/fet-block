@@ -1,6 +1,6 @@
 {
   "name": "fet-block",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "fetBlock is a web h5 request hook library",
   "types": "module",
   "main": "dist/fetBlock.cjs",
@@ -41,6 +41,7 @@
     "npm-run-all": "^4.1.5",
     "rollup": "^4.25.0",
     "rollup-plugin-copy": "^3.5.0",
-    "serve": "^14.2.4"
+    "serve": "^14.2.4",
+    "standard-version": "^9.5.0"
   }
 }
